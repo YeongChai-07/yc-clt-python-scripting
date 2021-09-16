@@ -11,5 +11,6 @@ elif path.islink(file_folder_name):
 elif path.ismount(file_folder_name):
     print("This is a mount point.\n")
 # Finally displaying the information of the file/folder in long-listing format
-os_list_dir_command = "ls -lart " # OS-Specific list directory command (Unix)
+#os_list_dir_command = "ls -lart " # OS-Specific list directory command (Unix)
+os_list_dir_command = "dir " # OS-Specific list directory command (Windows)
 system(os_list_dir_command + file_folder_name) # Invoking the command
