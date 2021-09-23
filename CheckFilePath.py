@@ -1,5 +1,5 @@
 import os
-path_to_check = '/data/myUser/myFiles/nthFile'
+path_to_check = 'D:/data/myUser/myFiles/nthFile'
 #path_to_check = os.getcwd() + '/stupidTest.py'
 # Let's begin by first check whether the path exists or not
 if os.path.exists(path_to_check):
