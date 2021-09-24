@@ -1,6 +1,9 @@
-import os
-# Gets input from user
-file_folder_name = input("Please enter a name of a file or folder:")
+import os,sys
+# Gets input from the Python Interpreter
+# sys.args[0] values contains the path of the script
+# sys.args[1] & subsequent indexes contains the subsequent arguments passed to the script.
+file_folder_name = sys.argv[1]
+#file_folder_name = input("Please enter a name of a file or folder:")
 # Let's check what item type does the file/folder that the user input, belongs to
 if os.path.isdir(file_folder_name):
     print("This is a directory.\n")
