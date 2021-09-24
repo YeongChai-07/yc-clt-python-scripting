@@ -4,17 +4,19 @@ import os,sys
 # sys.args[1] & subsequent indexes contains the subsequent arguments passed to the script.
 file_folder_name = sys.argv[1]
 #file_folder_name = input("Please enter a name of a file or folder:")
+SCRIPT_EXIT_STATUS = 2 # Defaulting the exit status to 2.
 # Let's check what item type does the file/folder that the user input, belongs to
 if os.path.isdir(file_folder_name):
     print("This is a directory.\n")
+    SCRIPT_EXIT_STATUS = 1 # Assigning exit status to 1.
 elif os.path.isfile(file_folder_name):
     print("This is a regular file.\n")
 elif os.path.islink(file_folder_name):
     print("This is a symbolic link.\n")
 elif os.path.ismount(file_folder_name):
     print("This is a mount point.\n")
-# Finally displaying the information of the file/folder in long-listing format
-# Using dictionary data structure to store the directory command for individual platform.
-# E.g. posix => Unix OS, nt => Windows OS, java => Java-based OS
-os_list_dir_command_dict = {"posix": "ls -lart ", "nt" : "dir "}
-os.system(os_list_dir_command_dict[os.name] + file_folder_name) # Invoking the command
+else:
+    SCRIPT_EXIT_STATUS = 0 # Assigning exit status to 0
+
+# Exits the script with exit code
+sys.exit(SCRIPT_EXIT_STATUS)
