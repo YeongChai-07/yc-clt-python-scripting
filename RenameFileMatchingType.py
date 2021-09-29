@@ -15,6 +15,6 @@ today_date_str = datetime.date.today().strftime('%Y-%m-%d')
 for file_to_rename in list_of_matching_files:
     # Assigning the renaming file format to be as follows
     # "YYYY-MM-DD(Today's date)-OriginalFileName"
-    new_filename = "{0}-{1}".format(today_date_str, file_to_rename.name)
+    new_filename = f"{today_date_str}-{file_to_rename.name}"
     # Perform the actual file renaming with the new filename format.
     file_to_rename.rename(file_to_rename.parent.joinpath(new_filename))
